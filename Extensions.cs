@@ -18,5 +18,17 @@ namespace LinqFaroShuffle
                 yield return secondIter.Current;
             }
         }
+
+        public static bool IsDeckEqual<T>(this IEnumerable<T> first, IEnumerable<T> second)
+        {
+            IEnumerator<T> firstIter = first.GetEnumerator();
+            IEnumerator<T> secondIter = second.GetEnumerator();
+
+            while (firstIter.MoveNext() && secondIter.MoveNext())
+            {
+                if (!firstIter.Current.Equals(secondIter.Current)) return false;
+            }
+            return true;
+        }
     }
 }
