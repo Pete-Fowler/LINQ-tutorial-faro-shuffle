@@ -39,4 +39,6 @@ foreach (var card in startingDeck)
     Console.WriteLine(card);
 }
 
-Console.WriteLine(startingDeck.Count());
+var top = startingDeck.Take(26);
+var bottom = startingDeck.Skip(26);
+
